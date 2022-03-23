@@ -41,6 +41,8 @@ public class UserDao {
 		return user;
 	}
 	
+	
+	// method extraction
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "root", "toby1234");
