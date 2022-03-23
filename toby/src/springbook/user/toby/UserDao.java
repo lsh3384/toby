@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDao {
+public abstract class UserDao {
 	public void add(User user) throws ClassNotFoundException, SQLException {
 		Connection c = getConnection();
 		
@@ -42,16 +42,10 @@ public class UserDao {
 	}
 	
 	
-	// method extraction
-	public Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "root", "toby1234");
-		
-		return c;
-	}
+	public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		UserDao dao = new UserDao();
+		NUserDao dao = new NUserDao();
 		
 		User user = new User();
 		user.setId("whiteship");
@@ -69,3 +63,4 @@ public class UserDao {
 		System.out.println(user2.getId() + " 조회 성공");
 	}
 }
+
