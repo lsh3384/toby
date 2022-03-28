@@ -3,7 +3,6 @@ package springbook.user.toby;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// spring반영중
 @Configuration
 public class DaoFactory {
 	@Bean
